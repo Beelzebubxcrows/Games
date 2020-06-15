@@ -1,0 +1,42 @@
+td{
+    border-color:red;
+    border-radius:1px;
+    border-style:solid;
+    padding:15px;
+    color:red;
+}
+table{
+    margin-left:12cm;
+}
+body{
+    background-color:black;
+}
+
+#questions{
+    font-size:25px;
+    font-family: 'Righteous', cursive;
+    color:red;
+}
+#black{
+    border-color:black;
+}
+
+p{
+    font-size:25px;
+    font-family: 'Righteous', cursive;
+    color:rebeccapurple;
+}
+
+#message{
+    font-size:25px;
+    font-family: 'Righteous', cursive;
+    color:rebeccapurple;
+}
+
+#lk{
+    margin-left:17cm;
+    font-size:25px;
+    
+    
+}
+

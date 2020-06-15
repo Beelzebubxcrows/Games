@@ -1,0 +1,338 @@
+<script>
+var i=null;
+var z=null;
+var t="0";
+var bleep= new Audio();
+bleep.src="g.mp3";
+
+var f=[0,0,0,0,0,0,0,0,0]
+var win=false;
+function check(num){
+if(
+    (document.getElementById("1").innerHTML==num
+ &&document.getElementById("2").innerHTML==num &&
+document.getElementById("3").innerHTML==num )||
+( document.getElementById("4").innerHTML==num
+ &&document.getElementById("5").innerHTML==num &&
+document.getElementById("6").innerHTML==num )||
+( document.getElementById("7").innerHTML==num
+ &&document.getElementById("8").innerHTML==num &&
+document.getElementById("9").innerHTML==num )||
+
+(document.getElementById("1").innerHTML==num
+ &&document.getElementById("4").innerHTML==num &&
+document.getElementById("7").innerHTML==num )||
+( document.getElementById("2").innerHTML==num
+ &&document.getElementById("5").innerHTML==num &&
+document.getElementById("8").innerHTML==num )||
+( document.getElementById("3").innerHTML==num
+ &&document.getElementById("6").innerHTML==num &&
+document.getElementById("9").innerHTML==num ) ||
+
+(document.getElementById("1").innerHTML==num
+ &&document.getElementById("5").innerHTML==num &&
+document.getElementById("9").innerHTML==num )||
+( document.getElementById("3").innerHTML==num
+ &&document.getElementById("5").innerHTML==num &&
+document.getElementById("7").innerHTML==num )
+
+)
+
+
+
+
+{
+    win=true;
+}
+
+}
+function draw()
+{ let gh=true;
+    for(let i=0;i<9;i++)
+    {
+        if(f[i]==0)
+        {gh=false;
+        break;}
+        else 
+        continue;
+    }
+    return gh;
+}
+function turnchange(){
+
+ if(i==0)
+    i=1;
+    else 
+    i=0;
+
+    
+
+}
+function actualturn(){
+    check(z);
+    
+    
+    if(draw()==true && win==false)
+    document.getElementById("message").innerHTML="LOOKS LIKE IT IS A DRAW :(";
+
+    if(win==true)
+    {   
+        document.getElementById("message").innerHTML="THE WINNER IS : "+z;
+        exit(0);
+    }
+    else{
+        if(i==0)
+    z="X";
+    else
+    z="0";}
+}
+function play1(){
+    actualturn();
+   
+    
+    if(f[0]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+    document.getElementById("1").innerHTML=z;
+
+    f[0]=1;turnchange();
+    }
+    else{
+        if(draw()==false)
+        alert("Block is already filled");
+    }
+    
+    
+   
+}
+function play2(){
+    actualturn();
+    
+   
+    if(f[1]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+    document.getElementById("2").innerHTML=z;
+    f[1]=1;turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+function play3(){
+    actualturn();
+   
+    if(f[2]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+    document.getElementById("3").innerHTML=z;
+    f[2]=1;turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+function play4(){
+    actualturn();
+   
+    if(f[3]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+        
+        document.getElementById("4").innerHTML=z;
+    f[3]=1;turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+function play5(){
+    actualturn();
+    
+    if(f[4]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+        
+        document.getElementById("5").innerHTML=z;
+    f[4]=1;turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+function play6(){
+    actualturn();
+   
+    if(f[5]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+        document.getElementById("6").innerHTML=z;
+    f[5]=1;turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+function play7(){
+    actualturn();
+    
+    if(f[6]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+        
+        document.getElementById("7").innerHTML=z;
+    f[6]=1;turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+function play8(){
+    actualturn();
+   
+    if(f[7]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;
+        document.getElementById("8").innerHTML=z;
+    f[7]=1;
+    turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+function play9(){
+    actualturn();
+   
+    if(f[8]==0)
+    {
+        t=z;
+    if(z=="X")
+    t="0";
+    else
+    t="X";
+    document.getElementById("message").innerHTML="THIS IS THE TURN OF "+t;        
+        
+        document.getElementById("9").innerHTML=z;
+    f[8]=1;
+    turnchange();}
+    else{if(draw()==false)
+        alert("Block is already filled")
+    }
+}
+
+
+
+</script>
+<style>
+
+body {
+
+background-image: url("bg2.jpg");
+
+}
+    embed{
+max-height:0.1mm;
+max-width:0.1mm;
+}
+p1{
+margin-left:14.4cm;
+font-size:40px;
+
+
+}
+td{
+text-align:center;
+
+}
+tr,td {
+
+border : 3px solid black ;
+height:1.25cm;
+width:2cm;
+text-align:centre;
+}
+table{
+padding:0.15cm;
+border : 5px solid black;
+margin-left:13cm;
+margin-top:5cm;
+}
+div{
+    margin-left:13cm;
+    margin-top: 1cm;
+    font-size: 24px;
+    font-family:cursive;
+}
+.heading{margin-left:13cm;
+    font-family:fantasy;
+    font-size: 55px;
+}
+</style>
+
+
+<body >
+<div class="heading">TIC TAC TOE</div>
+<table>
+<tr>
+    <td id="1" onclick="play1(),bleep.play()"></td>
+    <td id="2" onclick="play2(),bleep.play()"></td>
+    <td id="3" onclick="play3(),bleep.play()"></td>
+    
+
+
+</tr>
+
+<tr>
+    <td id="4" onclick="play4(),bleep.play()"></td>
+    <td id="5" onclick="play5(),bleep.play()"></td>
+    <td id="6" onclick="play6(),bleep.play()"></td>
+    
+    
+</tr>
+
+<tr>
+    <td id="7" onclick="play7(),bleep.play()"></td>
+    <td id="8" onclick="play8(),bleep.play()"></td>
+    <td id="9" onclick="play9(),bleep.play()"></td>
+    
+
+</tr>
+</table>
+<div id="message">THIS IS THE TURN OF 0</div>
+
+    
+</body>

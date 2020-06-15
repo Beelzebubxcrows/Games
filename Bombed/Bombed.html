@@ -1,0 +1,175 @@
+<script>
+  
+var bg= new Audio();
+    bg.src="bg.mp3";
+    bg.play();
+</script>
+
+
+<html>
+
+<head> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <title> Bombed</title>
+</head>
+
+<body>
+    
+<p style="text-align: center;font-family: monospace;
+        font-size: 35px; font-weight: bolder;">BOMBED</p>    
+    <p style="text-align: center;">Below are ten boxes, only one box has a bomb in it.<br>To win the game click on the box which does not has the bomb.<br>After every turn the bomb is put in an another box.<br>Escape the bombs if you can!!!</p>
+  <table id="bombs" align="center">
+    
+    
+    
+    <tr>
+      <td onclick="game(this.id)" id="1"></td>
+      <td onclick="game(this.id)" id="2"></td>
+      <td onclick="game(this.id)" id="3"></td>
+      <td onclick="game(this.id)" id="4"></td>
+      <td onclick="game(this.id)" id="5"></td>
+      </tr>
+    
+    
+    <tr>
+      <td onclick="game(this.id)" id="6"></td>
+      <td onclick="game(this.id)" id="7"></td>
+      <td onclick="game(this.id)" id="8"></td>
+      <td onclick="game(this.id)" id="9"></td>
+      <td onclick="game(this.id)"id="10" ></td>
+      </tr>
+    
+    
+    
+    
+    
+    
+    
+    </table>
+    
+    
+    
+    
+    
+
+    
+    <table align="center">
+    <tr><th id="bombtext"></th><th id="BL"></th>
+    </tr>
+    <tr> <th id="clickedtext"></th><th id="UL"></th>
+    </tr>   
+    </table>
+    
+    
+    
+    
+    <p id="message" style="text-align: center;font-family: monospace;
+        font-size: 35px; "></p>    
+    
+    
+    
+    </body>
+
+</html>
+
+
+
+
+<style>
+
+   
+    td{
+        
+        height: 100px;
+        width: 100px;
+        background-color: brown;
+        border-color: black;
+        border-width:5px;
+        border-style: solid;
+        float: left;
+    }
+    #bombs{
+       
+        margin-top: auto;
+    }
+    p{
+        
+    }
+
+</style>
+
+
+
+<script>
+var n=10;
+    var go=0;
+    var p=["1","2","3","4","5","6","7","8","9","10"];
+function game(b)
+    { document.getElementById("message").innerHTML="";
+        console.log("Game status"+go);
+        if(go==1)
+             document.getElementById("message").innerHTML="Game is over";
+            
+       else if( document.getElementById(b).style.backgroundColor == "white")
+             document.getElementById("message").innerHTML="ALREADY HAVE OPENED THE BOX";
+        else if(n<=0)
+        {
+            document.getElementById("message").innerHTML="Game is over. You have opened all the boxes";
+         go=1;
+        }
+        else if(go==0){
+        var g=Math.floor((Math.random()*n)+1);
+            console.log(p[b-1]);
+            if(p[g-1]!="0")
+            {p[b-1]="0";
+             
+            }
+            else{
+                console.log("bomb overlapped");
+                console.log("Generating sequence");
+                while(p[g-1]=="0")
+                {g=Math.floor((Math.random()*n)+1);
+                console.log(g);
+                }
+                p[b-1]="0";
+            }
+            console.log(p);
+            
+        console.log("Bomb is on"+g);
+       console.log("User clicked on"+b);
+             document.getElementById("bombtext").innerHTML="Bomb was on";
+             document.getElementById("clickedtext").innerHTML="You clicked on";
+            document.getElementById("BL").innerHTML=g;
+            document.getElementById("UL").innerHTML=b;
+        if(g==b)
+           { 
+               console.log("BOMBED");
+              var bleep= new Audio();
+             
+            bleep.src="bombed.mp3";  bleep.play();
+            document.getElementById("message").innerHTML="YOU WERE BOMBED";
+               
+            go=1;
+               document.getElementById(b).style.backgroundColor = "red";
+        
+           }
+        else{
+            document.getElementById(b).style.backgroundColor="white";
+            if(n==2)
+            {document.getElementById("message").innerHTML="CONGRATS!!! YOU ESCAPED THE BOMBS";
+            go=1;
+            }
+        
+        }
+             n=n-1;
+        console.log("Squares left"+n);
+     }
+        
+        
+       
+    }
+
+
+
+</script>
